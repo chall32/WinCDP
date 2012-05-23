@@ -24,7 +24,7 @@ VMware ESX has CDP support built in. Why not also have CDP support in Windows?
 ***See the [changelog] for what's new in the most recent release.***
 
 
-### [Click here to download latest version](https://github.com/chall32/WinCDP/blob/master/WinCDP.exe)
+### [Click here to download latest version](https://github.com/chall32/WinCDP/blob/master/WinCDP.exe?raw=true)
 
 [changelog]: https://github.com/chall32/WinCDP/blob/master/ChangeLog.txt
 [chall32.blogspot.com]: http://chall32.blogspot.com
