@@ -2,7 +2,7 @@ WinCDP
 ======
 
 ## Cisco Discovery Protocol Client for Windows
-Chris Hall 2010-2012
+Chris Hall 2010-2012 - [chall32.blogspot.com]
 
 ![WinCDP is a Windows Cisco Discovery Protocol Client](https://sites.google.com/site/chall32/general/WinCDP.png)
 
@@ -25,3 +25,4 @@ VMware ESX has CDP support built in. Why not also have CDP support in Windows?
 
 
 [changelog]: https://github.com/chall32/WinCDP/blob/master/ChangeLog.txt
+[chall32.blogspot.com]: http://chall32.blogspot.com
