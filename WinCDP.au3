@@ -13,43 +13,6 @@
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 ;===================================================================================================================================================================
 ; WinCDP - Cisco Discovery for Windows - Chris Hall 2010-2012
-; History:
-;  Alpha 1 - 01/06/2010
-;   Initial release
-;
-; Alpha 2 - 02/06/2010
-;   Fixed non detection & cancel mid discovery hang
-;   Always return switch names in uppercase
-;   Added countdown timer
-;   Tweak startup splash dialogue
-;
-; Beta 1 - 07/07/2010
-;	Fixed UAC, Added require admin rights loop
-;
-; Beta 2 - 05/04/2011
-;	Show VLAN ID
-;	Added Save Data Button
-;	Better tcpdump.exe handling
-;
-; Release 1.0 - 06/04/2011
-;	Show Switch port Duplex
-;	Show VTP Management Doamin
-;	Hide task tray icon
-;	Remove "Cisco" text from switch model output
-;
-; Release 1.1 - 13/07/2011
-; 	Move "NO CDP DATA FOUND ... !" message to status box
-;	Result data width increased
-;
-; Release 1.2 - 04/05/2012
-; 	Added NIC hardware lookup, display & save
-;	Better UAC icon handling
-;	Zero input error handling via popup
-;	Remove free text entry in Network Connection selection drop down
-;	Declare file descriptors
-;
-; TO DO:
-;	Enumerate all button?
 ;===================================================================================================================================================================
 $VER = "1.2"
 
