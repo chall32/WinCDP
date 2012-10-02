@@ -1,6 +1,12 @@
 
-Release 1.2 - 04/05/2012
-------------------------
+Release 1.3 - 02 Oct 2012
+-------------------------
+* Move GUI elements around to better handle longer switch names
+* Saving CDP data will now also append to an existing file
+
+
+Release 1.2 - 04 May 2012
+-------------------------
 * Added NIC hardware lookup, display & save
 * Better UAC icon handling
 * Zero input error handling via popup
@@ -8,41 +14,41 @@ Release 1.2 - 04/05/2012
 * Declare file descriptors
 
 
-Release 1.1 - 13/07/2011
-------------------------
+Release 1.1 - 13 Jul 2011
+-------------------------
 * Move "NO CDP DATA FOUND ... !" message to status box
 * Result data width increased
 
 
-Release 1.0 - 06/04/2011
-------------------------
+Release 1.0 - 06 Apr 2011
+-------------------------
 * Show Switch port Duplex
 * Show VTP Management Doamin
 * Hide task tray icon
 * Remove "Cisco" text from switch model output
 
 
-Beta 2 - 05/04/2011
--------------------
+Beta 2 - 05 Apr 2011
+--------------------
 * Show VLAN ID
 * Added Save Data Button
 * Better tcpdump.exe handling
 
 
-Beta 1 - 07/07/2010
--------------------
+Beta 1 - 07 Jul 2010
+--------------------
 * Fixed UAC
 * Added require admin rights loop
 
 
-Alpha 2 - 02/06/2010
---------------------
+Alpha 2 - 02 Jun 2010
+---------------------
 * Fixed non detection & cancel mid discovery hang
 * Always return switch names in uppercase
 * Added countdown timer
 * Tweak startup splash dialogue
 
 
-Alpha 1 - 01/06/2010
---------------------
+Alpha 1 - 01 Jun 2010
+---------------------
 * Initial release

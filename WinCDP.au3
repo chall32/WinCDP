@@ -1,20 +1,23 @@
 #NoTrayIcon
 #RequireAdmin
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
+#AutoIt3Wrapper_Icon=cisco.ico
+#AutoIt3Wrapper_Outfile=WinCDP.exe
 #AutoIt3Wrapper_Compression=3
 #AutoIt3Wrapper_Res_Description=Cisco Discovery Protocol Analyser
-#AutoIt3Wrapper_Res_Fileversion=0.1.2.0
+#AutoIt3Wrapper_Res_Fileversion=0.0.1.3
 #AutoIt3Wrapper_Res_LegalCopyright=Chris Hall 2010-2012
 #AutoIt3Wrapper_Res_requestedExecutionLevel=requireAdministrator
 #AutoIt3Wrapper_Res_Field=ProductName|WinCDP
-#AutoIt3Wrapper_Res_Field=ProductVersion|1.2
-#AutoIt3Wrapper_Res_Field=OriginalFileName|WinCDPv1.2.exe
+#AutoIt3Wrapper_Res_Field=ProductVersion|1.3
+#AutoIt3Wrapper_Res_Field=OriginalFileName|WinCDP.exe
+#AutoIt3Wrapper_Run_AU3Check=n
 #AutoIt3Wrapper_AU3Check_Parameters=-d -w 1 -w 2 -w 3 -w 4 -w 5 -w 6
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 ;===================================================================================================================================================================
 ; WinCDP - Cisco Discovery for Windows - Chris Hall 2010-2012
 ;===================================================================================================================================================================
-$VER = "1.2"
+$VER = "1.3"
 
 #include <GuiConstantsEx.au3>
 #include <WindowsConstants.au3>
@@ -78,9 +81,9 @@ GUICtrlCreateLabel("Switch Name:", 30, 160, 70, 20)
 GUICtrlCreateLabel("Port Identifier:", 30, 190, 70, 20)
 GUICtrlCreateLabel("VLAN Identifier:", 30, 220, 75, 20)
 GUICtrlCreateLabel("Switch IP Address:", 30, 250, 90, 20)
-GUICtrlCreateLabel("Switch Model:", 280, 160, 70, 20)
-GUICtrlCreateLabel("Port Duplex:", 280, 190, 70, 20)
-GUICtrlCreateLabel("VTP Mgmt Domain:", 280, 220, 95, 20)
+GUICtrlCreateLabel("Switch Model:", 280, 190, 70, 20)
+GUICtrlCreateLabel("Port Duplex:", 280, 220, 70, 20)
+GUICtrlCreateLabel("VTP Mgmt Domain:", 280, 250, 95, 20)
 GUICtrlCreateGroup("Status ", 15, 300, 520, 65)
 GUICtrlCreateLabel($WinCDPVer, 350, 375, 200, 20)
 
@@ -148,7 +151,7 @@ Do
 	If StringInStr(FileReadLine($file, $line), "Device-ID (0x01)") Then
 		$SwitchName = StringSplit(FileReadLine($file, $line), "'")
 		$SwitchName = StringUpper($SwitchName[2])
-		GUICtrlCreateLabel($SwitchName, 140, 160, 120, 20)
+		GUICtrlCreateLabel($SwitchName, 140, 160, 180, 20)
 		FileWriteLine($SaveFile, "Switch Name:	" & $SwitchName)
 	EndIf
 	If StringInStr(FileReadLine($file, $line), "Port-ID (0x03)") Then
@@ -171,19 +174,19 @@ Do
 	If StringInStr(FileReadLine($file, $line), "Platform (0x06)") Then
 		$SwitchModel = StringSplit(FileReadLine($file, $line), "'")
 		$SwitchModel = StringTrimLeft (StringUpper($SwitchModel[2]), 6)
-		GUICtrlCreateLabel($SwitchModel, 390, 160, 120, 20)
+		GUICtrlCreateLabel($SwitchModel, 390, 190, 120, 20)
 		FileWriteLine($SaveFile, "Switch Model:	" & $SwitchModel)
 	EndIf
 	If StringInStr(FileReadLine($file, $line), "Duplex (0x0b)") Then
 		$Duplex = StringSplit(FileReadLine($file, $line), ":")
 		$Duplex = StringLower(StringStripWS($Duplex[3],8))
 		$Duplex = _StringProper($Duplex)
-		GUICtrlCreateLabel($Duplex, 390, 190, 120, 20)
+		GUICtrlCreateLabel($Duplex, 390, 220, 120, 20)
 		FileWriteLine($SaveFile, "Switch Duplex:	" & $Duplex)
 	EndIf
 	If StringInStr(FileReadLine($file, $line), "VTP Management Domain (0x09)") Then
 		$VTP = StringSplit(FileReadLine($file, $line), "'")
-		GUICtrlCreateLabel($VTP[2], 390, 220, 120, 20)
+		GUICtrlCreateLabel($VTP[2], 390, 250, 120, 20)
 		FileWriteLine($SaveFile, "VTP Mgmt:	" & $VTP[2])
 	EndIf
 
@@ -214,10 +217,12 @@ EndIf
 
 	Func SaveData()
 		If FileExists(@TempDir & "\SaveCDP.txt") = 0 Then Return
-		$UserSave = FileSaveDialog("Save CDP Data to","::{20D04FE0-3AEA-1069-A2D8-08002B30309D}","Text Documents (*.txt)", 16)
+		$UserSave = FileSaveDialog("Save CDP Data to","::{20D04FE0-3AEA-1069-A2D8-08002B30309D}","Text Documents (*.txt)", 2)
 		If $UserSave = "" Then Return
 		If StringInStr($UserSave, ".txt") = 0 Then $UserSave = $UserSave & ".txt"
-		FileCopy(@TempDir & "\SaveCDP.txt",$UserSave)
+		FileOpen($UserSave, 1)
+		FileWrite($UserSave, FileRead(@TempDir & "\SaveCDP.txt") & @CRLF)
+		FileClose($UserSave)
 	EndFunc
 
 	Func OnExit()
