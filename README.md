@@ -4,7 +4,9 @@ WinCDP
 ## Cisco Discovery Protocol Client for Windows
 Chris Hall 2010-2012 - [chall32.blogspot.com]
 
-![WinCDP is a Windows Cisco Discovery Protocol Client](https://sites.google.com/site/chall32/general/WinCDP.png)
+<p align="center"> 
+<img src="https://sites.google.com/site/chall32/general/WinCDP.png" alt="WinCDP is a Windows Cisco Discovery Protocol Client"/>
+</p>
 
 ### What is CDP?
 Cisco Discovery Protocol (CDP) is a proprietary Data Link Layer network protocol developed by Cisco Systems. It is used to share information about other directly connected Cisco equipment, such as the operating system version and IP address.
