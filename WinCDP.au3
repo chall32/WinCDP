@@ -206,13 +206,13 @@ EndIf
 	EndFunc
 
 	Func ClearResults()
-		GUICtrlCreateLabel("", 140, 160, 120, 20)
+		GUICtrlCreateLabel("", 140, 160, 180, 20)
 		GUICtrlCreateLabel("", 140, 190, 120, 20)
 		GUICtrlCreateLabel("", 140, 220, 120, 20)
 		GUICtrlCreateLabel("", 140, 250, 120, 20)
-		GUICtrlCreateLabel("", 390, 160, 120, 20)
 		GUICtrlCreateLabel("", 390, 190, 120, 20)
 		GUICtrlCreateLabel("", 390, 220, 120, 20)
+		GUICtrlCreateLabel("", 390, 250, 120, 20)
 	EndFunc
 
 	Func SaveData()
